@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6fd247abbf6534a85160487effa61b, type: 3}
+  m_Name: Engine Eternal
+  m_EditorClassIdentifier: 
+  id: engine_eternal
+  description: The eternal engine provides the whole train with power and warmth
+    through nuclear fission. It also houses four engineers for internal repairs and
+    maintenance. If it ever catches fire, humanity is doomed.
+  cost: 0
+  backWheelX: -1.05
+  frontWheelX: 0.4
+  background: {fileID: 698430570174064631, guid: 06019de65c0bb7a49938cdc53fd752af,
+    type: 3}
+  foreground: {fileID: -1564362999922134450, guid: 06019de65c0bb7a49938cdc53fd752af,
+    type: 3}
