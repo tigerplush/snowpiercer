@@ -7,4 +7,9 @@ public class HousingCarData : CarData
 {
     public int maximumNumberOfOccupants;
     public List<Family> occupants = new List<Family>();
+
+    public HousingCarData()
+    {
+        type = CarType.Housing;
+    }
 }
