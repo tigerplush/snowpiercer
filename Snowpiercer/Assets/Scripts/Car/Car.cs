@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Car : MonoBehaviour, IPointerClickHandler
+public class Car : MonoBehaviour
 {
     public CarData carData;
     public SpriteRenderer background;
@@ -26,10 +26,5 @@ public class Car : MonoBehaviour, IPointerClickHandler
         frontWheels.position = frontWheelPosition;
 
         foreground.sprite = car.foreground;
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-
     }
 }

@@ -18,4 +18,14 @@ public class Family
             }
         }
     }
+
+    override public string ToString()
+    {
+        string infos = "";
+        foreach(string member in members)
+        {
+            infos += member + ", ";
+        }
+        return infos;
+    }
 }

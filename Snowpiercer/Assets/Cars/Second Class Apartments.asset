@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 740422bcbb651864594f688d933add8f, type: 3}
-  m_Name: First Class Apartment
+  m_Name: Second Class Apartments
   m_EditorClassIdentifier: 
-  id: first_class_apartment
-  description: Houses up to one family of first class passengers.
-  cost: 2500
+  id: second_class_apartments
+  description: Houses up to four families of second passengers citizens
+  cost: 1500
   travelClass: 0
   type: 0
   backWheelX: -1.2
   frontWheelX: 1.2
-  background: {fileID: 6226460170378983086, guid: 06019de65c0bb7a49938cdc53fd752af,
-    type: 3}
-  foreground: {fileID: -4091738485086093233, guid: 06019de65c0bb7a49938cdc53fd752af,
-    type: 3}
+  background: {fileID: 0}
+  foreground: {fileID: 0}
   maximumNumberOfOccupants: 0

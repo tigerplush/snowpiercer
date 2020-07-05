@@ -9,6 +9,9 @@ public class CarData : ScriptableObject
     public string description;
     public int cost;
 
+    public TravelClass travelClass;
+    public CarType type;
+
     public float backWheelX = -1.2f;
     public float frontWheelX = 1.2f;
 

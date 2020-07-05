@@ -416,9 +416,10 @@ MonoBehaviour:
   maximumNumberOfCars: 1001
   cars: []
   availableCars:
-  - {fileID: 11400000, guid: e2a306c7968b33d46b74ee282eaeaaa4, type: 2}
+  - {fileID: 11400000, guid: 6e03b851fa1abf34083bfb73712de483, type: 2}
   - {fileID: 11400000, guid: 331e7e32872952f4e8f1c22837f7bce2, type: 2}
   - {fileID: 11400000, guid: 81968665579f8ef4b92fbee86e740cc4, type: 2}
+  - {fileID: 11400000, guid: 85d0b05624dc1e047925049234a2dc3d, type: 2}
   carLength: 4
 --- !u!4 &70339638
 Transform:

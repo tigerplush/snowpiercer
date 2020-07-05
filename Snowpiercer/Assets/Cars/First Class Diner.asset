@@ -15,6 +15,8 @@ MonoBehaviour:
   id: first_class_diner
   description: Serves first class meals and provides little entertainment
   cost: 6000
+  travelClass: 0
+  type: 1
   backWheelX: -1.2
   frontWheelX: 1.2
   background: {fileID: 3468351180165744658, guid: 06019de65c0bb7a49938cdc53fd752af,
