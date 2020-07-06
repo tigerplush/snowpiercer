@@ -8,6 +8,9 @@ public class FamilyFactory : MonoBehaviour
 
     public float[] chances;
 
+    public Vector2 firstClassFunds;
+    public Vector2 firstClassIncome;
+
     public void Awake()
     {
         if(instance == null)
@@ -23,10 +26,11 @@ public class FamilyFactory : MonoBehaviour
     public Family CreateOne(TravelClass travelClass)
     {
         Family family = null;
+        string surname = Data.RandomElement(Data.surnames);
         switch(travelClass)
         {
             case TravelClass.First:
-                family = new FirstClassFamily(chances);
+                family = new FirstClassFamily(surname, chances, firstClassFunds, firstClassIncome);
                 break;
             case TravelClass.Second:
                 break;

@@ -23,4 +23,4 @@ MonoBehaviour:
     type: 3}
   foreground: {fileID: -4091738485086093233, guid: 06019de65c0bb7a49938cdc53fd752af,
     type: 3}
-  maximumNumberOfOccupants: 0
+  maximumNumberOfOccupants: 1

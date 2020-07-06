@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Family
 {
+    public string Surname
+    {
+        get;
+        private set;
+    }
     public List<string> members = new List<string>();
 
-    public Family(float[] chances)
+    public Family(string surname, float[] chances)
     {
+        Surname = surname;
         members.Add(Data.RandomElement(Data.FirstNames()));
 
         foreach(float chance in chances)
@@ -22,10 +28,14 @@ public class Family
     override public string ToString()
     {
         string infos = "";
-        foreach(string member in members)
+
+        for(int i = 0; i < members.Count - 1; i++)
         {
-            infos += member + ", ";
+            infos += members[i] + ", ";
         }
+
+        infos += members[members.Count - 1];
+
         return infos;
     }
 }

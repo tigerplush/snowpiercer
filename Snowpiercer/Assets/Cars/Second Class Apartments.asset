@@ -21,4 +21,4 @@ MonoBehaviour:
   frontWheelX: 1.2
   background: {fileID: 0}
   foreground: {fileID: 0}
-  maximumNumberOfOccupants: 0
+  maximumNumberOfOccupants: 4

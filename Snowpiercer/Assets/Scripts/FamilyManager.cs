@@ -44,14 +44,9 @@ public class FamilyManager : MonoBehaviour
             {
                 // Create enough families
                 Family[] families = FamilyFactory.instance.Create(car.travelClass, 4);
-                foreach(Family family in families)
-                {
-                    Debug.Log(family);
-                }
-
                 // Pass them to the UI
 
-                familyUi.Enable();
+                familyUi.Enable(families);
                 // While selection dialoge is open
                 while (ChoosingFamily)
                 {

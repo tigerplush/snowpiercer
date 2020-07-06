@@ -7,31 +7,39 @@ public class NewFamilyUI : MonoBehaviour
     public GameObject newFamilyPanel;
     public Transform newFamilyContent;
 
-    private List<GameObject> familyPanels = new List<GameObject>();
+    private List<FamilyInfoUI> familyPanels = new List<FamilyInfoUI>();
 
-    private void Populate(GameObject[] passengers)
+    private void Populate(Family[] families)
     {
-        for(int i = familyPanels.Count; i < passengers.Length; i++)
+        for(int i = familyPanels.Count; i < families.Length; i++)
         {
             GameObject newPanel = Instantiate(newFamilyPanel, newFamilyContent);
-            familyPanels.Add(newPanel);
+            FamilyInfoUI familyInfo = newPanel.GetComponent<FamilyInfoUI>();
+            familyPanels.Add(familyInfo);
         }
 
         for(int i = 0; i < familyPanels.Count; i++)
         {
-            if(i < passengers.Length)
+            if(i < families.Length)
             {
-                familyPanels[i].SetActive(true);
+                familyPanels[i].Set(families[i]);
             }
             else
             {
-                familyPanels[i].SetActive(false);
+                familyPanels[i].gameObject.SetActive(false);
             }
         }
     }
 
-    public void Enable()
+    public void Enable(Family[] families)
     {
+        Populate(families);
         gameObject.SetActive(true);
+    }
+
+    public void Next()
+    {
+        FamilyManager.instance.FinishedChoosing();
+        gameObject.SetActive(false);
     }
 }
