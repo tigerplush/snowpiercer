@@ -8,7 +8,7 @@ public class CarManager : MonoBehaviour
 
     public NewCarUI newCarUi;
 
-    public CarData firstCar;
+    public CarData[] firstCars;
     public int maximumNumberOfCars = 1001;
     public List<Car> cars = new List<Car>();
     public List<CarData> availableCars = new List<CarData>();
@@ -38,10 +38,12 @@ public class CarManager : MonoBehaviour
 
     public void Start()
     {
-        Car newCar = CarFactory.instance.Create(firstCar);
-        this.cars.Add(newCar);
-
-        //TimeManager.instance.TimeUp += AddCar;
+        for(int i = 0; i < firstCars.Length; i++)
+        {
+            nextCar = firstCars[i];
+            placement = i;
+            StartCoroutine(AddCar());
+        }
     }
 
     public bool Buy(string carId, int placement)
@@ -86,7 +88,6 @@ public class CarManager : MonoBehaviour
 
     public IEnumerator AddCar()
     {
-        Debug.Log("Adding Car");
         if (nextCar != null)
         {
             Car newCar = CarFactory.instance.Create(nextCar);
@@ -106,7 +107,6 @@ public class CarManager : MonoBehaviour
     public IEnumerator ShowCarSelectionDialogue()
     {
         ChoosingCar = true;
-        Debug.Log("Car Selection Dialogue");
         newCarUi.Show();
         while(ChoosingCar)
         {
