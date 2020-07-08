@@ -14,7 +14,6 @@ public class FamilyManager : MonoBehaviour
         private set;
     }
 
-
     public void Awake()
     {
         if(instance == null)
@@ -46,7 +45,7 @@ public class FamilyManager : MonoBehaviour
                 Family[] families = FamilyFactory.instance.Create(car.travelClass, 4);
                 // Pass them to the UI
 
-                familyUi.Enable(families);
+                familyUi.Enable(families, car);
                 // While selection dialoge is open
                 while (ChoosingFamily)
                 {

@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class FamilyInfoUI : Selectable
+public class FamilyInfoUI : Toggle
 {
     public Image familyPortrait;
     public Text familySurname;
     public Text familyInfo;
 
-    public delegate void OnSelectHandler(Family family);
-    public OnSelectHandler OnSelectEvent;
+    public delegate void OnClickHandler(FamilyInfoUI familyInfoUi);
+    public OnClickHandler OnClickEvent;
 
     private Family family;
 
@@ -31,11 +31,9 @@ public class FamilyInfoUI : Selectable
     public override void OnPointerDown(PointerEventData eventData)
     {
         base.OnPointerDown(eventData);
-        if (this.IsInteractable())
+        if(IsInteractable())
         {
-            EventSystem.current.SetSelectedGameObject(null);
-            this.Select();
-            OnSelectEvent?.Invoke(this.family);
+            OnClickEvent?.Invoke(this);
         }
     }
 }
