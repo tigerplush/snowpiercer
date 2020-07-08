@@ -8,11 +8,28 @@ public class FamilyManager : MonoBehaviour
 
     public NewFamilyUI familyUi;
 
+    public List<Family> passengers = new List<Family>();
+
+    public int Passengers
+    {
+        get
+        {
+            int passengerCount = 0;
+            foreach(Family family in passengers)
+            {
+                passengerCount += family.members.Count;
+            }
+            return passengerCount;
+        }
+    }
+
     public bool ChoosingFamily
     {
         get;
         private set;
     }
+
+    private HousingCarData car;
 
     public void Awake()
     {
@@ -26,19 +43,20 @@ public class FamilyManager : MonoBehaviour
         }
     }
 
-    public void FinishedChoosing()
+    public void FinishedChoosing(Family[] families)
     {
+        passengers.AddRange(families);
+        car.MoveIn(families);
         ChoosingFamily = false;
     }
 
     public IEnumerator ShowFamilySelectionDialogue()
     {
-        Debug.Log("Family selection dialogue");
         // If there is an empty Car
         if(CarManager.instance.HasOpenCar())
         {
             ChoosingFamily = true;
-            HousingCarData car = CarManager.instance.GetOpenCar();
+            car = CarManager.instance.GetOpenCar();
             if(car)
             {
                 // Create enough families
@@ -51,6 +69,8 @@ public class FamilyManager : MonoBehaviour
                 {
                     yield return null;
                 }
+
+                car = null;
             }
         }
     }

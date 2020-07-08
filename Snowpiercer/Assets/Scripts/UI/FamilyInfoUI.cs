@@ -13,11 +13,15 @@ public class FamilyInfoUI : Toggle
     public delegate void OnClickHandler(FamilyInfoUI familyInfoUi);
     public OnClickHandler OnClickEvent;
 
-    private Family family;
+    public Family Family
+    {
+        get;
+        private set;
+    }
 
     public void Set(Family family)
     {
-        this.family = family;
+        Family = family;
         UpdateUI();
         interactable = true;
         isOn = false;
@@ -26,8 +30,8 @@ public class FamilyInfoUI : Toggle
 
     public void UpdateUI()
     {
-        familySurname.text = family.Surname;
-        familyInfo.text = family.ToString();
+        familySurname.text = Family.Surname;
+        familyInfo.text = Family.ToString();
     }
 
     public override void OnPointerDown(PointerEventData eventData)

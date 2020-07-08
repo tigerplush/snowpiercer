@@ -48,7 +48,12 @@ public class NewFamilyUI : MonoBehaviour
 
     public void Invite()
     {
-        FamilyManager.instance.FinishedChoosing();
+        List<Family> selectedFamilies = new List<Family>();
+        foreach(FamilyInfoUI infoUi in selectedFamilyPanels)
+        {
+            selectedFamilies.Add(infoUi.Family);
+        }
+        FamilyManager.instance.FinishedChoosing(selectedFamilies.ToArray());
         gameObject.SetActive(false);
     }
 

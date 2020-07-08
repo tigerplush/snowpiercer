@@ -70,6 +70,7 @@ public class ResourceManager : MonoBehaviour
             {
                 passengers += family.members.Count;
             }
+            passengers = FamilyManager.instance.Passengers;
             return passengers;
         }
     }
