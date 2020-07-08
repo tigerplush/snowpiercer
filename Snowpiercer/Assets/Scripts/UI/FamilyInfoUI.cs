@@ -19,6 +19,8 @@ public class FamilyInfoUI : Toggle
     {
         this.family = family;
         UpdateUI();
+        interactable = true;
+        isOn = false;
         gameObject.SetActive(true);
     }
 
