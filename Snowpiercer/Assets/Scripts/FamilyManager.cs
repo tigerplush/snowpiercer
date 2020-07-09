@@ -47,6 +47,16 @@ public class FamilyManager : MonoBehaviour
     {
         passengers.AddRange(families);
         car.MoveIn(families);
+
+        foreach(Family family in families)
+        {
+            FirstClassFamily firstClassFamily = (FirstClassFamily)family;
+            if(firstClassFamily != null)
+            {
+                ResourceManager.instance.Income(firstClassFamily.funds);
+            }
+        }
+
         ChoosingFamily = false;
     }
 

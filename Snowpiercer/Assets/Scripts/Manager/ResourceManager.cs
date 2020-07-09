@@ -51,6 +51,11 @@ public class ResourceManager : MonoBehaviour
         return price <= Funds;
     }
 
+    public void Income(int income)
+    {
+        Funds += income;
+    }
+
     public bool Spend(int money)
     {
         if(CanAfford(money))
