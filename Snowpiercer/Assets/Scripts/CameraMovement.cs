@@ -37,7 +37,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentZoomLevel += Input.mouseScrollDelta.y * -zoomSpeed * Time.deltaTime;
+        //CurrentZoomLevel += Input.mouseScrollDelta.y * -zoomSpeed * Time.deltaTime;
         CurrentZoomLevel = Mathf.Clamp(CurrentZoomLevel, closeZoomLevel, normalZoomLevel);
 
         newPosition = transform.position;
