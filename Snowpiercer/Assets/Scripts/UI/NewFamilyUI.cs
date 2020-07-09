@@ -13,7 +13,7 @@ public class NewFamilyUI : MonoBehaviour
 
     private List<FamilyInfoUI> familyPanels = new List<FamilyInfoUI>();
     private List<FamilyInfoUI> selectedFamilyPanels = new List<FamilyInfoUI>();
-    private HousingCarData carData;
+    private HousingCar carData;
 
     private void Populate(Family[] families)
     {
@@ -38,11 +38,13 @@ public class NewFamilyUI : MonoBehaviour
         }
     }
 
-    public void Enable(Family[] families, HousingCarData car)
+    public void Enable(Family[] families, HousingCar car)
     {
         carData = car;
+        selectedFamilyPanels.Clear();
         UpdateTitle();
         Populate(families);
+        inviteButton.interactable = false;
         gameObject.SetActive(true);
     }
 
@@ -73,17 +75,17 @@ public class NewFamilyUI : MonoBehaviour
         UpdateTitle();
         foreach(FamilyInfoUI familyInfo in familyPanels)
         {
-            bool selectionLeft = selectedFamilyPanels.Count < carData.maximumNumberOfOccupants;
+            bool selectionLeft = selectedFamilyPanels.Count < carData.MaximumNumberOfOccupants;
             bool thisPanel = selectedFamilyPanels.Contains(familyInfo);
             familyInfo.interactable = selectionLeft || thisPanel;
         }
 
-        inviteButton.interactable = selectedFamilyPanels.Count == carData.maximumNumberOfOccupants;
+        inviteButton.interactable = selectedFamilyPanels.Count == carData.MaximumNumberOfOccupants;
     }
 
     private void UpdateTitle()
     {
-        int remainingFamilies = carData.maximumNumberOfOccupants - selectedFamilyPanels.Count;
+        int remainingFamilies = carData.MaximumNumberOfOccupants - selectedFamilyPanels.Count;
         selectionText.text = string.Format("Pick {0} famil{1} for {2}", remainingFamilies, remainingFamilies == 1 ? "y" : "ies", carData.name);
     }
 }

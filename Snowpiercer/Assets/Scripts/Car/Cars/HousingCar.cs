@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "", menuName = "Cars/New Housing Car", order = 2)]
-public class HousingCarData : CarData
+public class HousingCar : Car
 {
-    public int maximumNumberOfOccupants;
+    public int MaximumNumberOfOccupants
+    {
+        get;
+        private set;
+    }
     public List<Family> occupants = new List<Family>();
 
     public int NumberOfOccupants
@@ -16,9 +19,11 @@ public class HousingCarData : CarData
         }
     }
 
-    public HousingCarData()
+    public override void Setup(CarData carData)
     {
-        type = CarType.Housing;
+        base.Setup(carData);
+        HousingCarData car = (HousingCarData)carData;
+        MaximumNumberOfOccupants = car.maximumNumberOfOccupants;
     }
 
     public void MoveIn(Family[] families)

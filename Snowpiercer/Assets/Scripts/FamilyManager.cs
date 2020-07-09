@@ -29,7 +29,7 @@ public class FamilyManager : MonoBehaviour
         private set;
     }
 
-    private HousingCarData car;
+    private HousingCar car;
 
     public void Awake()
     {

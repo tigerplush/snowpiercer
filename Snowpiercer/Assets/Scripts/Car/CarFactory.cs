@@ -23,7 +23,18 @@ public class CarFactory : MonoBehaviour
     public Car Create(CarData carData)
     {
         GameObject newCar = Instantiate(carPrefab, CarManager.instance.transform);
-        Car car = newCar.GetComponent<Car>();
+        CarCosmetics carCosmetics = newCar.GetComponent<CarCosmetics>();
+        carCosmetics.Setup(carData);
+        Car car = null;
+        switch(carData.type)
+        {
+            case CarType.Housing:
+                car = newCar.AddComponent<HousingCar>();
+                break;
+            default:
+                car = newCar.AddComponent<Car>();
+                break;
+        }
         car.Setup(carData);
         return car;
     }

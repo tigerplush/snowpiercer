@@ -65,31 +65,30 @@ public class CarManager : MonoBehaviour
 
     public bool HasOpenCar()
     {
-        List<Car> sleepCars = cars.FindAll(element => element.carData.type == CarType.Housing);
+        List<Car> sleepCars = cars.FindAll(element => element.type == CarType.Housing);
         int familySpaces = 0;
         int occupiedSpaces = 0;
         sleepCars.ForEach(element =>
         {
-            HousingCarData housingCar = (HousingCarData)element.carData;
-            familySpaces += housingCar.maximumNumberOfOccupants;
+            HousingCar housingCar = (HousingCar)element;
+            familySpaces += housingCar.MaximumNumberOfOccupants;
             occupiedSpaces += housingCar.NumberOfOccupants;
         });
 
-        Debug.Log(occupiedSpaces + " of " + familySpaces + " occupied");
         return occupiedSpaces < familySpaces;
     }
 
-    public HousingCarData GetOpenCar()
+    public HousingCar GetOpenCar()
     {
-        List<Car> sleepCars = cars.FindAll(element => element.carData.type == CarType.Housing);
-        List<HousingCarData> housingCars = new List<HousingCarData>();
+        List<Car> sleepCars = cars.FindAll(element => element.type == CarType.Housing);
+        List<HousingCar> housingCars = new List<HousingCar>();
         foreach(Car car in sleepCars)
         {
-            HousingCarData housingCar = (HousingCarData)car.carData;
+            HousingCar housingCar = (HousingCar)car;
             housingCars.Add(housingCar);
         }
 
-        HousingCarData emptyCar = housingCars.Find(element => element.NumberOfOccupants < element.maximumNumberOfOccupants);
+        HousingCar emptyCar = housingCars.Find(element => element.NumberOfOccupants < element.MaximumNumberOfOccupants);
 
         return emptyCar;
     }
