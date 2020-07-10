@@ -10,18 +10,20 @@ public class Family
         get;
         private set;
     }
-    public List<string> members = new List<string>();
+    public List<Passenger> members = new List<Passenger>();
 
     public Family(string surname, float[] chances)
     {
         Surname = surname;
-        members.Add(Data.RandomElement(Data.FirstNames()));
+        string firstName = Data.RandomElement(Data.FirstNames());
+        members.Add(new Passenger(firstName, surname));
 
         foreach(float chance in chances)
         {
             if(Random.value < chance)
             {
-                members.Add(Data.RandomElement(Data.FirstNames()));
+                firstName = Data.RandomElement(Data.FirstNames());
+                members.Add(new Passenger(firstName, surname));
             }
         }
     }

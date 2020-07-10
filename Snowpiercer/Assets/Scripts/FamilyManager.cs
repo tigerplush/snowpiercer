@@ -8,14 +8,14 @@ public class FamilyManager : MonoBehaviour
 
     public NewFamilyUI familyUi;
 
-    public List<Family> passengers = new List<Family>();
+    public List<Family> families = new List<Family>();
 
     public int Passengers
     {
         get
         {
             int passengerCount = 0;
-            foreach(Family family in passengers)
+            foreach(Family family in families)
             {
                 passengerCount += family.members.Count;
             }
@@ -45,11 +45,16 @@ public class FamilyManager : MonoBehaviour
 
     public void FinishedChoosing(Family[] families)
     {
-        passengers.AddRange(families);
+        this.families.AddRange(families);
         car.MoveIn(families);
 
         foreach(Family family in families)
         {
+            //foreach(Passenger member in family.members)
+            //{
+            //    PassengerFactory.instance.Create(car);
+            //}
+
             FirstClassFamily firstClassFamily = (FirstClassFamily)family;
             if(firstClassFamily != null)
             {

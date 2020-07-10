@@ -105,7 +105,6 @@ public class CarManager : MonoBehaviour
                 position.x = -carLength * i;
                 this.cars[i].gameObject.transform.position = position;
             }
-
             nextCar = null;
         }
         yield return null;

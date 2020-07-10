@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Red Man Passenger
+  m_Controller: {fileID: 9100000, guid: 4c2ec70c88614584abd72c79a2232be6, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: b7dd0780ce50eeb4c94a85635d80fdde, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 853ea917cf43e1742ac8f74604c04be6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a41452b454754d64b8f8d560f704d6f8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a7d70e4b0c315604681fc475f8953329, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 84d46eeae8989aa4a95b62df903025f1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ba2493b8d6006bf4cb2106f99dcbca56, type: 2}
