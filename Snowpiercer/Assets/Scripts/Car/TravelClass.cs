@@ -1,7 +1,8 @@
 ﻿public enum TravelClass
 {
-    First
-    ,Second
-    ,Third
-    ,LAST_ELEMENT
+    Classified,
+    First,
+    Second,
+    Third,
+    LAST_ELEMENT
 }

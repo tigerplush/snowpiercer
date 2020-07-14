@@ -15,10 +15,15 @@ MonoBehaviour:
   id: second_class_apartments
   description: Houses up to four families of second passengers citizens
   cost: 1500
-  travelClass: 0
+  travelClass: 2
   type: 0
   backWheelX: -1.2
   frontWheelX: 1.2
   background: {fileID: 0}
   foreground: {fileID: 0}
+  fulfillments:
+  - needToFulfill: 2
+    quality: 2
+  - needToFulfill: 3
+    quality: 2
   maximumNumberOfOccupants: 4

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: first_class_apartment
   description: Houses up to one family of first class passengers.
   cost: 2500
-  travelClass: 0
+  travelClass: 1
   type: 0
   backWheelX: -1.2
   frontWheelX: 1.2
@@ -23,4 +23,9 @@ MonoBehaviour:
     type: 3}
   foreground: {fileID: -4091738485086093233, guid: 06019de65c0bb7a49938cdc53fd752af,
     type: 3}
+  fulfillments:
+  - needToFulfill: 2
+    quality: 3
+  - needToFulfill: 3
+    quality: 3
   maximumNumberOfOccupants: 1

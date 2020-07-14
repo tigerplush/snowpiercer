@@ -18,10 +18,11 @@ MonoBehaviour:
     maintenance. If it ever catches fire, humanity is doomed.
   cost: 0
   travelClass: 0
-  type: 1
+  type: 2
   backWheelX: -1.05
   frontWheelX: 0.4
   background: {fileID: 698430570174064631, guid: 06019de65c0bb7a49938cdc53fd752af,
     type: 3}
   foreground: {fileID: -1564362999922134450, guid: 06019de65c0bb7a49938cdc53fd752af,
     type: 3}
+  fulfillments: []
