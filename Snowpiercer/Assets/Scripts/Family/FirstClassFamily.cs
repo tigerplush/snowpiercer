@@ -17,7 +17,9 @@ public class FirstClassFamily : Family
                 happiness += member.Happiness;
             }
             happiness /= members.Count;
-            return (int)(income * happiness / 100f);
+            int scaledIncome = (int)(income * happiness / 100f);
+            scaledIncome = Mathf.Clamp(scaledIncome, 0, income);
+            return scaledIncome;
         }
     }
 
