@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Passenger
+public class Passenger : MonoBehaviour
 {
     public string firstName;
     public string surname;
@@ -15,30 +14,22 @@ public class Passenger
     public float Hunger = 100f;
     public float Hygiene = 100f;
 
-    public Passenger(string firstName, string surname)
-    {
-        this.firstName = firstName;
-        this.surname = surname;
+    public List<string> taskList = new List<string>();
 
-        gender = (Gender)Random.Range(0, (int)Gender.LAST_ELEMENT);
+    public void Set(PassengerData data)
+    {
+        this.firstName = data.firstName;
+        this.surname = data.surname;
+        gender = data.gender;
+        travelClass = data.travelClass;
     }
 
-    public string Name
-    {
-        get
-        {
-            return firstName + " " + surname;
-        }
-    }
-
-    public override string ToString()
-    {
-        return firstName;
-    }
-
-    public void Update()
+    // Update is called once per frame
+    private void Update()
     {
         UpdateNeeds();
+
+        UpdateTasks();
     }
 
     private void UpdateNeeds()
@@ -70,5 +61,19 @@ public class Passenger
             Happiness += Time.deltaTime;
         }
         Happiness = Mathf.Clamp(Happiness, -100f, 100f);
+    }
+
+    private void UpdateTasks()
+    {
+        if (taskList.Count == 0)
+        {
+            //Idle
+        }
+        else
+        {
+            //Check first task
+            //If task can be fulfilled, begin
+            //if not, check next task
+        }
     }
 }
