@@ -73,7 +73,7 @@ public class ResourceManager : MonoBehaviour
             int passengers = 0;
             foreach(Family family in firstClass)
             {
-                passengers += family.members.Count;
+                passengers += family.blueprints.Count;
             }
             passengers = FamilyManager.instance.Passengers;
             return passengers;

@@ -12,9 +12,10 @@ public class Family
         private set;
     }
 
+    public List<PassengerData> blueprints = new List<PassengerData>();
     public List<Passenger> members = new List<Passenger>();
 
-    public Dictionary<Passenger, Relation> relations = new Dictionary<Passenger, Relation>();
+    public Dictionary<PassengerData, Relation> relations = new Dictionary<PassengerData, Relation>();
 
     public enum Relation
     {
@@ -32,8 +33,8 @@ public class Family
     {
         Surname = surname;
         string firstName = Data.RandomElement(Data.FirstNames());
-        Passenger passenger = new Passenger(firstName, surname);
-        members.Add(passenger);
+        PassengerData passenger = new PassengerData(firstName, surname);
+        blueprints.Add(passenger);
 
         List<Relation> possibleRelations = new List<Relation>();
         for(int i = 0; i < (int)Relation.LAST_ELEMENT; i++)
@@ -48,14 +49,14 @@ public class Family
             if(Random.value < chance)
             {
                 firstName = Data.RandomElement(Data.FirstNames());
-                passenger = new Passenger(firstName, surname);
-                members.Add(passenger);
+                passenger = new PassengerData(firstName, surname);
+                blueprints.Add(passenger);
                 Relate(passenger, possibleRelations);
             }
         }
     }
 
-    private void Relate(Passenger passenger, List<Relation> remainingRelations)
+    private void Relate(PassengerData passenger, List<Relation> remainingRelations)
     {
         Relation relation = (Relation)Random.Range(0, remainingRelations.Count);
 
@@ -75,12 +76,12 @@ public class Family
     {
         string infos = "";
 
-        for(int i = 0; i < members.Count - 1; i++)
+        for(int i = 0; i < blueprints.Count - 1; i++)
         {
-            infos += members[i] + ", ";
+            infos += blueprints[i] + ", ";
         }
 
-        infos += members[members.Count - 1];
+        infos += blueprints[blueprints.Count - 1];
 
         return infos;
     }

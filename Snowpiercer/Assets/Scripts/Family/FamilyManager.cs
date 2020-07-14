@@ -17,7 +17,7 @@ public class FamilyManager : MonoBehaviour
             int passengerCount = 0;
             foreach(Family family in families)
             {
-                passengerCount += family.members.Count;
+                passengerCount += family.blueprints.Count;
             }
             return passengerCount;
         }
@@ -50,9 +50,10 @@ public class FamilyManager : MonoBehaviour
 
         foreach(Family family in families)
         {
-            foreach (Passenger member in family.members)
+            foreach (PassengerData member in family.blueprints)
             {
-                PassengerFactory.instance.Instantiate(car, member);
+                Passenger passenger = PassengerFactory.instance.Instantiate(car, member);
+                family.members.Add(passenger);
             }
 
             FirstClassFamily firstClassFamily = (FirstClassFamily)family;

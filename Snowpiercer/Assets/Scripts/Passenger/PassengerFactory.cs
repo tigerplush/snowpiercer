@@ -11,9 +11,6 @@ public class PassengerFactory : MonoBehaviour
 
     public List<Passenger> passengers = new List<Passenger>();
 
-    public delegate void OnUpdateHandler();
-    public OnUpdateHandler OnUpdate;
-
     public void Awake()
     {
         if(instance == null)
@@ -26,26 +23,21 @@ public class PassengerFactory : MonoBehaviour
         }
     }
 
-    public PassengerCosmetics Instantiate(Passenger passenger)
+    public Passenger Instantiate(PassengerData passengerData)
     {
         GameObject passengerObject = Instantiate(passengerPrefab, passengerParent);
-        PassengerCosmetics passengerCosmetics = passengerObject.GetComponent<PassengerCosmetics>();
+        Passenger passenger = passengerObject.GetComponent<Passenger>();
+        passenger.Set(passengerData);
         passengers.Add(passenger);
-        OnUpdate += passenger.Update;
-        return passengerCosmetics;
+        return passenger;
     }
 
-    public PassengerCosmetics Instantiate(HousingCar car, Passenger passenger)
+    public Passenger Instantiate(HousingCar car, PassengerData passengerData)
     {
-        PassengerCosmetics passengerCosmetics = Instantiate(passenger);
+        Passenger passenger = Instantiate(passengerData);
         Vector3 position = passengerPrefab.transform.position;
         position.x = car.transform.position.x;
-        passengerCosmetics.transform.position = position;
-        return passengerCosmetics;
-    }
-
-    public void Update()
-    {
-        OnUpdate?.Invoke();
+        passenger.transform.position = position;
+        return passenger;
     }
 }
