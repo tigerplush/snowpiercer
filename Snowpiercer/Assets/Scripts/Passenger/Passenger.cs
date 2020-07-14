@@ -13,6 +13,8 @@ public enum Need
 
 public class Passenger : MonoBehaviour
 {
+    public AStarAgent agent;
+
     public string firstName;
     public string surname;
 
@@ -94,11 +96,24 @@ public class Passenger : MonoBehaviour
 
                 //Sort after how good they fulfill the need
 
-                //Check if car is reachable
 
-                //Set target
+                foreach(Car car in elegibleCars)
+                {
 
-                //break
+                    //Check if car is reachable
+                    if(agent.IsReachable())
+                    {
+                        agent.Target();
+                        currentTask = task;
+                        break;
+                    }
+                }
+
+                if(currentTask != Need.NO_TASK)
+                {
+                    break;
+                }
+
             }
 
             //if no task can be fulfilled
