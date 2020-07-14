@@ -23,7 +23,7 @@ public class FirstClassFamily : Family
         }
     }
 
-    public FirstClassFamily(string surname, float[] chances, Vector2 funds, Vector2 income) : base(surname, chances)
+    public FirstClassFamily(string surname, float[] chances, Vector2 funds, Vector2 income) : base(surname, chances, TravelClass.First)
     {
         float f = Random.value;
         this.funds = Mathf.FloorToInt(funds.x + f * (funds.y - funds.x));

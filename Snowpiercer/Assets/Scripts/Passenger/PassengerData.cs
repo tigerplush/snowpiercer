@@ -13,10 +13,11 @@ public class PassengerData
 
     public List<string> taskList = new List<string>();
 
-    public PassengerData(string firstName, string surname)
+    public PassengerData(string firstName, string surname, TravelClass travelClass)
     {
         this.firstName = firstName;
         this.surname = surname;
+        this.travelClass = travelClass;
 
         gender = (Gender)Random.Range(0, (int)Gender.LAST_ELEMENT);
     }

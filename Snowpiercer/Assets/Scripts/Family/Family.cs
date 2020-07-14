@@ -29,11 +29,11 @@ public class Family
         LAST_ELEMENT
     };
 
-    public Family(string surname, float[] chances)
+    public Family(string surname, float[] chances, TravelClass travelClass)
     {
         Surname = surname;
         string firstName = Data.RandomElement(Data.FirstNames());
-        PassengerData passenger = new PassengerData(firstName, surname);
+        PassengerData passenger = new PassengerData(firstName, surname, travelClass);
         blueprints.Add(passenger);
 
         List<Relation> possibleRelations = new List<Relation>();
@@ -49,7 +49,7 @@ public class Family
             if(Random.value < chance)
             {
                 firstName = Data.RandomElement(Data.FirstNames());
-                passenger = new PassengerData(firstName, surname);
+                passenger = new PassengerData(firstName, surname, travelClass);
                 blueprints.Add(passenger);
                 Relate(passenger, possibleRelations);
             }
