@@ -40,6 +40,7 @@ public class TaskManager : MonoBehaviour
 
     private IEnumerator NextTask()
     {
+        yield return StartCoroutine(FamilyManager.instance.Income());
         yield return StartCoroutine(CarManager.instance.AddCar());
         yield return StartCoroutine(FamilyManager.instance.ShowFamilySelectionDialogue());
         yield return StartCoroutine(CarManager.instance.ShowCarSelectionDialogue());
