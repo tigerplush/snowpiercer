@@ -1,5 +1,6 @@
 ﻿public enum CarType
 {
-    Housing
-    ,LAST_ELEMENT
+    Housing,
+    Diner,
+    LAST_ELEMENT
 }

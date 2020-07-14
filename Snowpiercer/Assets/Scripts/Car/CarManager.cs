@@ -119,4 +119,31 @@ public class CarManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public List<Car> FindCar(Need task, TravelClass travelClass)
+    {
+        List<Car> elegibleCars = cars.FindAll(element => Test(element, task, travelClass));
+        //List<Car> elegibleCars = cars.FindAll(element =>
+        //{
+        //    Debug.Log(element.travelClass);
+        //    return element;
+        //    element.travelClass == travelClass && element.fulfillments.Exists(need => need.needToFulfill == task)
+        //});
+        return elegibleCars;
+    }
+
+    private static bool Test(Car car, Need task, TravelClass travelClass)
+    {
+        if(car.travelClass == travelClass)
+        {
+            Debug.Log(car.travelClass);
+            Debug.Log(task + " in " + car.fulfillments.Count + "?");
+            foreach(Fulfillment fulfillment in car.fulfillments)
+            {
+                Debug.Log(fulfillment.needToFulfill);
+            }
+            return car.fulfillments.Exists(need => need.needToFulfill == task);
+        }
+        return false;
+    }
 }

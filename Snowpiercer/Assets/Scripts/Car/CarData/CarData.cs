@@ -17,4 +17,6 @@ public class CarData : ScriptableObject
 
     public Sprite background;
     public Sprite foreground;
+
+    public List<Fulfillment> fulfillments = new List<Fulfillment>();
 }

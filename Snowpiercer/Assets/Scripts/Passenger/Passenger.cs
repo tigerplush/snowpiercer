@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Need
+{
+    NO_TASK,
+    Eat,
+    Sleep,
+    Wash,
+    LAST_ELEMENT
+}
+
 public class Passenger : MonoBehaviour
 {
     public string firstName;
@@ -14,12 +23,13 @@ public class Passenger : MonoBehaviour
     public float Hunger = 100f;
     public float Hygiene = 100f;
 
-    public List<string> taskList = new List<string>();
+    public List<Need> taskList = new List<Need>();
+    public Need currentTask = Need.NO_TASK;
 
     public void Set(PassengerData data)
     {
-        this.firstName = data.firstName;
-        this.surname = data.surname;
+        firstName = data.firstName;
+        surname = data.surname;
         gender = data.gender;
         travelClass = data.travelClass;
     }
@@ -40,16 +50,16 @@ public class Passenger : MonoBehaviour
         Hygiene -= Time.deltaTime;
         Hygiene = Mathf.Clamp(Hygiene, -100f, 100f);
 
-        if (Hunger < 0f)
+        if (Hunger < 0f && !taskList.Contains(Need.Eat))
         {
-            //If eating not in task list
             //Add eating to task list
+            taskList.Add(Need.Eat);
         }
 
-        if (Hygiene < 0f)
+        if (Hygiene < 0f && !taskList.Contains(Need.Wash))
         {
-            //If washing not in task list
             //add washing to task list
+            taskList.Add(Need.Wash);
         }
 
         if (Hunger < 0f || Hygiene < 0f)
@@ -67,13 +77,32 @@ public class Passenger : MonoBehaviour
     {
         if (taskList.Count == 0)
         {
-            //Idle
+            //No task => Idle
+        }
+        else if(currentTask != Need.NO_TASK)
+        {
+            //Active task => poll if fulfilled
         }
         else
         {
-            //Check first task
-            //If task can be fulfilled, begin
-            //if not, check next task
+            //Check each task
+            foreach(Need task in taskList)
+            {
+                //Find cars that can fulfill the need
+                List<Car> elegibleCars = CarManager.instance.FindCar(task, travelClass);
+                Debug.Log(string.Format("{0} can fullfill need {1}", elegibleCars.Count, task));
+
+                //Sort after how good they fulfill the need
+
+                //Check if car is reachable
+
+                //Set target
+
+                //break
+            }
+
+            //if no task can be fulfilled
+            //passenger will be frustrated
         }
     }
 }
