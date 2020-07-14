@@ -7,6 +7,20 @@ public class FirstClassFamily : Family
     public int funds;
     public int income;
 
+    public int Income
+    {
+        get
+        {
+            float happiness = 0f;
+            foreach(Passenger member in members)
+            {
+                happiness += member.Happiness;
+            }
+            happiness /= members.Count;
+            return (int)(income * happiness / 100f);
+        }
+    }
+
     public FirstClassFamily(string surname, float[] chances, Vector2 funds, Vector2 income) : base(surname, chances)
     {
         float f = Random.value;

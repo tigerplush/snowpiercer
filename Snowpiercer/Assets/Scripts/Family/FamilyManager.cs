@@ -50,10 +50,10 @@ public class FamilyManager : MonoBehaviour
 
         foreach(Family family in families)
         {
-            //foreach(Passenger member in family.members)
-            //{
-            //    PassengerFactory.instance.Create(car);
-            //}
+            foreach (Passenger member in family.members)
+            {
+                PassengerFactory.instance.Instantiate(car, member);
+            }
 
             FirstClassFamily firstClassFamily = (FirstClassFamily)family;
             if(firstClassFamily != null)
@@ -88,5 +88,23 @@ public class FamilyManager : MonoBehaviour
                 car = null;
             }
         }
+    }
+
+    public IEnumerator Income()
+    {
+        int income = 0;
+        int familyCount = 0;
+        foreach(Family family in families)
+        {
+            FirstClassFamily firstClassFamily = (FirstClassFamily)family;
+            if (firstClassFamily != null)
+            {
+                familyCount++;
+                income = firstClassFamily.Income;
+            }
+        }
+        Debug.Log(familyCount + " families had an income of " + income);
+        ResourceManager.instance.Income(income);
+        yield return null;
     }
 }
